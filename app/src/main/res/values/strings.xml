@@ -17,7 +17,13 @@
     <string name="product6">Soraya Kombucha</string>
     <string name="product3">Tołpa</string>
     <string name="product7">AA Vegan</string>
-    <string name="product8">Mixa</string>
+    <string name="product8">Uzdrovisko Mak</string>
+    <string name="product9">Dermedic Hydrain2</string>
+    <string name="product10">Bielenda Eco Nature</string>
+    <string name="product11">Revox Just</string>
+    <string name="product12">Jumi</string>
+    <string name="product13">Teatology Matcha Tea</string>
+    <string name="product14">Bielenda Blueberry C-Tox</string>
 
     <string name="description5">roślinny żel myjący do twarzy, 150 ml</string>
     <string name="description4">odżywczy żel myjący do twarzy, 150 ml</string>
@@ -26,7 +32,16 @@
     <string name="description6">naturalny żel do mycia twarzy do każdego typu cery, 150 ml</string>
     <string name="description3">żel z peelingiem i czerwoną glinką do mycia twarzy, 75 ml</string>
     <string name="description7">żel do mycia twarzy oczyszczająco-seboreguljący, 150 ml</string>
-    <string name="description8">kremowy żel do mycia twarzy, 200 ml</string>
+    <string name="description8">całodniowy krem do twarzy, 50 ml</string>
+    <string name="description9">nawilżający krem o przedłużonym działaniu, 50 ml</string>
+    <string name="description10">krem nawilżający do twarzy, 50 ml</string>
+    <string name="description11">krem przeciwsłoneczny do twarzy SPF50, 30 ml</string>
+    <string name="description12">wielofunkcyjny żel aloesowy 99%, 200 ml</string>
+    <string name="description13">ujędrniający krem do twarzy i szyi, 50 ml</string>
+    <string name="description14">nawilżająco-rozświetlający krem pianka do twarzy na dzień i na noc, 40 g</string>
+    <string name="description15">Mixa</string>
+
+
 
     <string name="prize5">19,99zł</string>
     <string name="prize4">22,99zł</string>
@@ -35,7 +50,13 @@
     <string name="prize6">15,99zł</string>
     <string name="prize3">9,99zł</string>
     <string name="prize7">15,99zł</string>
-    <string name="prize8">22,99zł</string>
+    <string name="prize8">50,99zł</string>
+    <string name="prize9">39,99zł</string>
+    <string name="prize10">20,99zł</string>
+    <string name="prize11">29,99zł</string>
+    <string name="prize12">24,99zł</string>
+    <string name="prize13">135,99zł</string>
+    <string name="prize14">15,99</string>
 
     <string name="capacity5">150ml</string>
     <string name="capacity4">150ml</string>
@@ -44,7 +65,13 @@
     <string name="capacity6">140ml</string>
     <string name="capacity3">150ml</string>
     <string name="capacity7">75ml</string>
-    <string name="capacity8">200ml</string>
+    <string name="capacity8">50ml</string>
+    <string name="capacity9">50ml</string>
+    <string name="capacity10">50ml</string>
+    <string name="capacity11">30ml</string>
+    <string name="capacity12">200ml</string>
+    <string name="capacity13">50ml</string>
+    <string name="capacity14">40ml</string>
 
     <string name="color1">#FFEEE3</string>
     <string name="color2">#DEACBA</string>
@@ -53,6 +80,13 @@
     <string name="color5">#D5749A</string>
     <string name="color6">#6ACC8A</string>
     <string name="color7">#2BA8DC</string>
+    <string name="color8">#D4BFB9</string>
+    <string name="color9">#504287</string>
+    <string name="color10">#F9A76E</string>
+    <string name="color11">#CD9D6C</string>
+    <string name="color12">#DEC372</string>
+    <string name="color13">#9BC37C</string>
+    <string name="color14">#AAC9E5</string>
 
     <string name="details1">Roślinny żel myjący do twarzy SORAYA plante naturalnie oczyszcza skórę dzięki zawartości delikatnej substancji myjącej pochodzenia roślinnego. Zawiera wyciągi z aloesu i białej herbaty. Doskonale usuwa zanieczyszczenia, pozostawiając skórę oczyszczoną, świeżą, gotową do dalszej pielęgnacji.</string>
     <string name="details2"></string>

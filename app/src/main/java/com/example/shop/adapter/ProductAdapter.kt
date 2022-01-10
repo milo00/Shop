@@ -10,6 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shop.CartActivity
+import com.example.shop.MainActivity
 import com.example.shop.ProductDetailsActivity
 import com.example.shop.model.Product
 import com.example.shop.R
@@ -47,6 +49,8 @@ class ProductAdapter(private val context: Context, private val dataSource: List<
                 holder.productFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
             } else {
                 holder.productFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+                //TODO:change
+                (context as MainActivity).loadProducts(R.string.category_name2)
             }
         }
 
