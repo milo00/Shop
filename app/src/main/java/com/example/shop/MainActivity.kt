@@ -31,10 +31,6 @@ class MainActivity : AppCompatActivity() {
         val favorite = intent.getBooleanExtra("favorite", false)
         val cart = intent.getIntExtra("cart", 0)
 
-       /* println(favorite)
-        println(cart)*/
-        println(favArray.contentToString())
-
         if (position != -1){
             favArray[position] = favorite
             cartArray[position] = cart
@@ -44,6 +40,7 @@ class MainActivity : AppCompatActivity() {
             value.favorite = favArray[index]
             value.quantityInCart = cartArray[index]
         }
+
 
         val productsRecyclerView = findViewById<RecyclerView>(R.id.products)
         productsRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)

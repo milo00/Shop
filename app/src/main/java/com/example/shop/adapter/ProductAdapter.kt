@@ -44,7 +44,6 @@ class ProductAdapter(private val context: Context, private val dataSource: List<
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ProductDetails::class.java)
             intent.putExtra("product", dataSource[position])
-            println("adapter $position")
             intent.putExtra("position", position)
             context.startActivity(intent)
         }

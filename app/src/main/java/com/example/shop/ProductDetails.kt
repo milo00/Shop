@@ -14,10 +14,9 @@ class ProductDetails : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_details)
 
+
         val product = intent.getParcelableExtra<Product>("product")
         val position = intent.getIntExtra("position", -1)
-
-        println("productDetails $position")
 
         if (product != null) {
             setIntent(product)
@@ -25,17 +24,17 @@ class ProductDetails : AppCompatActivity() {
 
         val back = findViewById<ImageView>(R.id.back)
 
+
         back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             if (product != null) {
-                /*println(product.favorite)
-                println(product.quantityInCart)*/
+                println("before send" + product.quantityInCart)
                 intent.putExtra("favorite", product.favorite)
                 intent.putExtra("cart", product.quantityInCart)
                 intent.putExtra("position", position)
             }
 
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            //           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
 
@@ -44,31 +43,6 @@ class ProductDetails : AppCompatActivity() {
             setCartOption(product)
         }
 
-    }
-
-    override fun onStart() {
-        super.onStart()
-        val product = intent.getParcelableExtra<Product>("product")
-        if (product != null) {
-
-            val favorite = findViewById<ImageView>(R.id.favorite)
-            if (product.favorite) {
-                favorite.setImageResource(
-                    resources.getIdentifier(
-                        "ic_baseline_favorite_24", "drawable", packageName
-                    )
-                )
-            }
-
-            val cart = findViewById<ImageView>(R.id.cart)
-            if (product.quantityInCart == 1) {
-                cart.setImageResource(
-                    resources.getIdentifier(
-                        "ic_baseline_remove_shopping_cart_24", "drawable", packageName
-                    )
-                )
-            }
-        }
     }
 
     private fun setIntent(product: Product) {
@@ -84,6 +58,23 @@ class ProductDetails : AppCompatActivity() {
         val productBackground = findViewById<ImageView>(R.id.background)
         DrawableCompat.setTint(productBackground.drawable, Color.parseColor(product.colorResourceId))
 
+        val favorite = findViewById<ImageView>(R.id.favorite)
+        if (product.favorite) {
+            favorite.setImageResource(
+                resources.getIdentifier(
+                    "ic_baseline_favorite_24", "drawable", packageName
+                )
+            )
+        }
+
+        val cart = findViewById<ImageView>(R.id.cart)
+        if (product.quantityInCart == 1) {
+            cart.setImageResource(
+                resources.getIdentifier(
+                    "ic_baseline_remove_shopping_cart_24", "drawable", packageName
+                )
+            )
+        }
     }
 
     private fun setFavoriteOption(product: Product) {
@@ -115,19 +106,19 @@ class ProductDetails : AppCompatActivity() {
             if (product.quantityInCart == 0) {
                 cart.setImageResource(
                     resources.getIdentifier(
-                        "ic_baseline_add_shopping_cart_24", "drawable", packageName
+                        "ic_baseline_remove_shopping_cart_24", "drawable", packageName
                     )
                 )
                 product.quantityInCart++
-            } else if (product.quantityInCart == 1){
+            } else if (product.quantityInCart == 1) {
                 cart.setImageResource(
                     resources.getIdentifier(
-                        "ic_baseline_remove_shopping_cart_24", "drawable", packageName
+                        "ic_baseline_add_shopping_cart_24", "drawable", packageName
                     )
                 )
                 product.quantityInCart--
             }
-            product.favorite = !product.favorite
+            println(product.quantityInCart)
         }
     }
 
