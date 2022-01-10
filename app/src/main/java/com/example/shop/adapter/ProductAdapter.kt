@@ -10,11 +10,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shop.CartActivity
 import com.example.shop.MainActivity
 import com.example.shop.ProductDetailsActivity
-import com.example.shop.model.Product
 import com.example.shop.R
+import com.example.shop.model.Product
 
 class ProductAdapter(private val context: Context, private val dataSource: List<Product>) :
     RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
@@ -27,6 +26,7 @@ class ProductAdapter(private val context: Context, private val dataSource: List<
         val productFavorite: ImageView = view.findViewById(R.id.favorite)
 
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.product_row, parent, false)
         return ViewHolder(view)
@@ -39,12 +39,13 @@ class ProductAdapter(private val context: Context, private val dataSource: List<
         holder.productColor.setBackgroundColor(Color.parseColor(dataSource[position].colorResourceId))
         holder.productImage.setImageResource(dataSource[position].imageResourceId)
 
-        if (dataSource[position].favorite) {
+        var favorite = dataSource[position].favorite
+        if (favorite) {
             holder.productFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
         }
 
         holder.productFavorite.setOnClickListener {
-            dataSource[position].favorite = !dataSource[position].favorite
+            dataSource[position].favorite = !favorite
             if (dataSource[position].favorite) {
                 holder.productFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
             } else {
@@ -57,7 +58,6 @@ class ProductAdapter(private val context: Context, private val dataSource: List<
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ProductDetailsActivity::class.java)
             intent.putExtra("product", dataSource[position])
-            intent.putExtra("position", position)
             context.startActivity(intent)
         }
     }

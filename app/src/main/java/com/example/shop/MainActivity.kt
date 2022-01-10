@@ -70,13 +70,13 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        val position = intent.getIntExtra("position", -1)
+        val id = intent.getIntExtra("id", -1)
         val favorite = intent.getBooleanExtra("favorite", false)
         val cart = intent.getIntExtra("cart", 0)
 
-        if (position != -1) {
-            productsDataSet[position].favorite = favorite
-            productsDataSet[position].quantityInCart = cart
+        if (id != -1) {
+            productsDataSet.find { product -> product.titleResourceId == id }?.favorite =  favorite
+            productsDataSet.find { product -> product.titleResourceId == id }?.quantityInCart = cart
         }
 
         checkCart()

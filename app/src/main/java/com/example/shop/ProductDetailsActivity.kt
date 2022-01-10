@@ -15,7 +15,6 @@ class ProductDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_product_details)
 
         val product = intent.getParcelableExtra<Product>("product")
-        val position = intent.getIntExtra("position", -1)
 
         if (product != null) {
             setIntent(product)
@@ -28,7 +27,7 @@ class ProductDetailsActivity : AppCompatActivity() {
             if (product != null) {
                 intent.putExtra("favorite", product.favorite)
                 intent.putExtra("cart", product.quantityInCart)
-                intent.putExtra("position", position)
+                intent.putExtra("id", product.titleResourceId)
             }
             startActivity(intent)
         }
