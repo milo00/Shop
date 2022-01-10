@@ -41,6 +41,15 @@ class ProductAdapter(private val context: Context, private val dataSource: List<
             holder.productFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
         }
 
+        holder.productFavorite.setOnClickListener {
+            dataSource[position].favorite = !dataSource[position].favorite
+            if (dataSource[position].favorite) {
+                holder.productFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
+            } else {
+                holder.productFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+            }
+        }
+
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ProductDetailsActivity::class.java)
             intent.putExtra("product", dataSource[position])
