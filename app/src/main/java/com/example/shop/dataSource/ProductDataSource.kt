@@ -30,7 +30,11 @@ class ProductDataSource {
             Product(R.string.product15, R.string.capacity15, R.string.description15, R.string.prize15, nightCategory, "#B28A9B", R.drawable.image15, initFavourite, initCart),
             Product(R.string.product16, R.string.capacity16, R.string.description16, R.string.prize16, nightCategory, "#F08F3F", R.drawable.image16, initFavourite, initCart),
             Product(R.string.product17, R.string.capacity17, R.string.description17, R.string.prize17, nightCategory, "#EDE3D8", R.drawable.image17, initFavourite, initCart),
-            Product(R.string.product18, R.string.capacity18, R.string.description18, R.string.prize18, nightCategory, "#E2C66B", R.drawable.image18, initFavourite, initCart)
+            Product(R.string.product18, R.string.capacity18, R.string.description18, R.string.prize18, nightCategory, "#E2C66B", R.drawable.image18, initFavourite, initCart),
+            Product(R.string.product19, R.string.capacity19, R.string.description19, R.string.prize19, menCategory, "#BF935A", R.drawable.image19, initFavourite, initCart),
+            Product(R.string.product20, R.string.capacity20, R.string.description20, R.string.prize20, menCategory, "#AC978E", R.drawable.image20, initFavourite, initCart),
+            Product(R.string.product21, R.string.capacity21, R.string.description21, R.string.prize21, menCategory, "#DC2C31", R.drawable.image21, initFavourite, initCart),
+            Product(R.string.product22, R.string.capacity22, R.string.description22, R.string.prize22, menCategory, "#A68764", R.drawable.image22, initFavourite, initCart)
         )
 
         val shuffledProducts = products.shuffled()

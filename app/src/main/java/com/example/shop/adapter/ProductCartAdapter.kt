@@ -20,6 +20,7 @@ class ProductCartAdapter (private val context: Context, private val dataSource: 
         val productName: TextView = view.findViewById(R.id.name)
         val productCapacity: TextView = view.findViewById(R.id.capacity)
         val productPrice: TextView = view.findViewById(R.id.price)
+        val productCategory: TextView = view.findViewById(R.id.category)
         val productImage: ImageView = view.findViewById(R.id.image)
         val productQuantity: TextView = view.findViewById(R.id.quantity)
 
@@ -36,6 +37,7 @@ class ProductCartAdapter (private val context: Context, private val dataSource: 
         holder.productName.setText(dataSource[position].titleResourceId)
         holder.productCapacity.setText(dataSource[position].capacityResourceId)
         holder.productPrice.setText(dataSource[position].prizeResourceId)
+        holder.productCategory.setText(dataSource[position].categoryResourceId)
         holder.productImage.setImageResource(dataSource[position].imageResourceId)
         holder.productQuantity.text = dataSource[position].quantityInCart.toString()
 

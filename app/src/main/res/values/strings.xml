@@ -28,6 +28,10 @@
     <string name="product16">Miraculum Asta.Plankton</string>
     <string name="product17">Feel Free Odżywianie</string>
     <string name="product18">Dermika Misotherapist</string>
+    <string name="product19">Laq Ekstremalnie Dziki</string>
+    <string name="product20">Laq Doberman Żel</string>
+    <string name="product21">Laq Doberman</string>
+    <string name="product22">Laq Dzik</string>
 
     <string name="description5">roślinny żel myjący do twarzy, 150 ml</string>
     <string name="description4">odżywczy żel myjący do twarzy, 150 ml</string>
@@ -47,6 +51,10 @@
     <string name="description16">krem-maska do twarzy, 50 ml</string>
     <string name="description17">naturalny krem do twarzy na noc, 50 ml</string>
     <string name="description18">krem naprawczy do twarzy na noc, 50 ml</string>
+    <string name="description19">żel pod prysznic z ekstraktem z dębu, 500 ml</string>
+    <string name="description20">mydło w kostce dla mężczyzn, 85 ml</string>
+    <string name="description21">żel pod prysznic, 500 ml</string>
+    <string name="description22">mydło w kostce dla mężczyzn, 85 ml</string>
 
 
 
@@ -68,6 +76,10 @@
     <string name="prize16">28,99</string>
     <string name="prize17">34,99</string>
     <string name="prize18">99,99</string>
+    <string name="prize19">21,99zł</string>
+    <string name="prize20">12,99</string>
+    <string name="prize21">21,99</string>
+    <string name="prize22">12,99</string>
 
     <string name="capacity5">150ml</string>
     <string name="capacity4">150ml</string>
@@ -87,6 +99,10 @@
     <string name="capacity16">50ml</string>
     <string name="capacity17">50ml</string>
     <string name="capacity18">50ml</string>
+    <string name="capacity19">500ml</string>
+    <string name="capacity20">85ml</string>
+    <string name="capacity21">500ml</string>
+    <string name="capacity22">85ml</string>
 
     <string name="color1">#FFEEE3</string>
     <string name="color2">#DEACBA</string>
