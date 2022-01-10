@@ -88,4 +88,8 @@ class ProductDataSource {
     fun loadProductsFav(): List<Product> {
         return products.filter { product -> product.favorite }
     }
+
+    fun loadProductsCart(): List<Product> {
+        return products.filter { product -> product.quantityInCart > 0 }
+    }
 }

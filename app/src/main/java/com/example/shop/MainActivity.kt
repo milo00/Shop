@@ -1,5 +1,6 @@
 package com.example.shop
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shop.adapter.ModeAdapter
 import com.example.shop.adapter.ProductAdapter
+import com.example.shop.adapter.ProductCartAdapter
 import com.example.shop.dataSource.ModeDataSource
 import com.example.shop.dataSource.ProductDataSource
 import com.example.shop.model.Mode
@@ -70,16 +72,17 @@ class MainActivity : AppCompatActivity() {
             productsDataSet[position].quantityInCart = cart
         }
 
-        checkCart(productsDataSet)
+        checkCart()
 
         val productsRecyclerView = findViewById<RecyclerView>(R.id.products)
         productsRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         productsRecyclerView.adapter = ProductAdapter(this, productsDataSet)
     }
 
-    private fun checkCart(productList: List<Product>) {
+    private fun checkCart() {
         var amountInCart = 0
 
+        val productList = ProductDataSource().loadProductsMain()
         for (product in productList) {
             amountInCart += product.quantityInCart
         }
@@ -91,6 +94,11 @@ class MainActivity : AppCompatActivity() {
             cart.visibility = View.VISIBLE
             val cartQuantity = findViewById<TextView>(R.id.quantity)
             cartQuantity.text = amountInCart.toString()
+
+            cart.setOnClickListener {
+                val intent = Intent(this, CartActivity::class.java)
+                startActivity(intent)
+            }
         } else {
             emptyCart.visibility = View.VISIBLE
             cart.visibility = View.GONE
