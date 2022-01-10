@@ -1,7 +1,11 @@
 package com.example.shop
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shop.adapter.ModeAdapter
@@ -9,6 +13,7 @@ import com.example.shop.adapter.ProductAdapter
 import com.example.shop.dataSource.ModeDataSource
 import com.example.shop.dataSource.ProductDataSource
 import com.example.shop.model.Mode
+import com.example.shop.model.Product
 
 class MainActivity : AppCompatActivity() {
     enum class CurrentMode {
@@ -49,11 +54,11 @@ class MainActivity : AppCompatActivity() {
 
 
         val productsDataSet = when (currentMode) {
-                CurrentMode.MAIN -> ProductDataSource().loadProductsMain()
-                CurrentMode.FAVORITE -> ProductDataSource().loadProductsFav()
-                CurrentMode.PROMOTIONS -> ProductDataSource().loadProductsMain()
-                CurrentMode.RECOMMENDATION -> ProductDataSource().loadProductsMain()
-            }
+            CurrentMode.MAIN -> ProductDataSource().loadProductsMain()
+            CurrentMode.FAVORITE -> ProductDataSource().loadProductsFav()
+            CurrentMode.PROMOTIONS -> ProductDataSource().loadProductsMain()
+            CurrentMode.RECOMMENDATION -> ProductDataSource().loadProductsMain()
+        }
 
 
         val position = intent.getIntExtra("position", -1)
@@ -65,9 +70,30 @@ class MainActivity : AppCompatActivity() {
             productsDataSet[position].quantityInCart = cart
         }
 
+        checkCart(productsDataSet)
 
         val productsRecyclerView = findViewById<RecyclerView>(R.id.products)
         productsRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         productsRecyclerView.adapter = ProductAdapter(this, productsDataSet)
+    }
+
+    private fun checkCart(productList: List<Product>) {
+        var amountInCart = 0
+
+        for (product in productList) {
+            amountInCart += product.quantityInCart
+        }
+
+        val emptyCart = findViewById<Button>(R.id.emptyCart)
+        val cart = findViewById<ConstraintLayout>(R.id.cart)
+        if (amountInCart > 0) {
+            emptyCart.visibility = View.GONE
+            cart.visibility = View.VISIBLE
+            val cartQuantity = findViewById<TextView>(R.id.quantity)
+            cartQuantity.text = amountInCart.toString()
+        } else {
+            emptyCart.visibility = View.VISIBLE
+            cart.visibility = View.GONE
+        }
     }
 }

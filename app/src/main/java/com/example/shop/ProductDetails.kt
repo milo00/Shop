@@ -23,7 +23,6 @@ class ProductDetails : AppCompatActivity() {
 
         val back = findViewById<ImageView>(R.id.back)
 
-
         back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             if (product != null) {
@@ -63,7 +62,7 @@ class ProductDetails : AppCompatActivity() {
             )
         }
 
-        val cart = findViewById<ImageView>(R.id.cart)
+        val cart = findViewById<ImageView>(R.id.emptyCart)
         if (product.quantityInCart == 1) {
             cart.setImageResource(
                 resources.getIdentifier(
@@ -96,7 +95,7 @@ class ProductDetails : AppCompatActivity() {
     }
 
     private fun setCartOption(product: Product) {
-        val cart = findViewById<ImageView>(R.id.cart)
+        val cart = findViewById<ImageView>(R.id.emptyCart)
 
         cart.setOnClickListener {
             if (product.quantityInCart == 0) {

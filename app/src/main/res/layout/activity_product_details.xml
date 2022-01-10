@@ -93,7 +93,7 @@
                 app:srcCompat="@drawable/image1" />
 
             <ImageView
-                android:id="@+id/cart"
+                android:id="@+id/emptyCart"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="40dp"
@@ -110,7 +110,7 @@
                 android:layout_marginEnd="40dp"
                 android:layout_marginRight="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/cart"
+                app:layout_constraintTop_toTopOf="@+id/emptyCart"
                 app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
 
             <TextView
@@ -122,7 +122,7 @@
                 android:gravity="center"
                 android:text="@string/description1"
                 app:layout_constraintEnd_toEndOf="@+id/favorite"
-                app:layout_constraintStart_toStartOf="@+id/cart"
+                app:layout_constraintStart_toStartOf="@+id/emptyCart"
                 app:layout_constraintTop_toBottomOf="@+id/name" />
 
             <TextView
@@ -132,7 +132,7 @@
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Opis:"
-                app:layout_constraintStart_toStartOf="@+id/cart"
+                app:layout_constraintStart_toStartOf="@+id/emptyCart"
                 app:layout_constraintTop_toBottomOf="@+id/description" />
 
             <TextView
