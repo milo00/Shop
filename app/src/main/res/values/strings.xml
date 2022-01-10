@@ -24,6 +24,10 @@
     <string name="product12">Jumi</string>
     <string name="product13">Teatology Matcha Tea</string>
     <string name="product14">Bielenda Blueberry C-Tox</string>
+    <string name="product15">Tołpa Dermo Face Rosacal</string>
+    <string name="product16">Miraculum Asta.Plankton</string>
+    <string name="product17">Feel Free Odżywianie</string>
+    <string name="product18">Dermika Misotherapist</string>
 
     <string name="description5">roślinny żel myjący do twarzy, 150 ml</string>
     <string name="description4">odżywczy żel myjący do twarzy, 150 ml</string>
@@ -39,7 +43,10 @@
     <string name="description12">wielofunkcyjny żel aloesowy 99%, 200 ml</string>
     <string name="description13">ujędrniający krem do twarzy i szyi, 50 ml</string>
     <string name="description14">nawilżająco-rozświetlający krem pianka do twarzy na dzień i na noc, 40 g</string>
-    <string name="description15">Mixa</string>
+    <string name="description15">regenerujący krem wzmacniający, noc, 40 ml</string>
+    <string name="description16">krem-maska do twarzy, 50 ml</string>
+    <string name="description17">naturalny krem do twarzy na noc, 50 ml</string>
+    <string name="description18">krem naprawczy do twarzy na noc, 50 ml</string>
 
 
 
@@ -57,6 +64,10 @@
     <string name="prize12">24,99zł</string>
     <string name="prize13">135,99zł</string>
     <string name="prize14">15,99</string>
+    <string name="prize15">38,99</string>
+    <string name="prize16">28,99</string>
+    <string name="prize17">34,99</string>
+    <string name="prize18">99,99</string>
 
     <string name="capacity5">150ml</string>
     <string name="capacity4">150ml</string>
@@ -72,6 +83,10 @@
     <string name="capacity12">200ml</string>
     <string name="capacity13">50ml</string>
     <string name="capacity14">40ml</string>
+    <string name="capacity15">40ml</string>
+    <string name="capacity16">50ml</string>
+    <string name="capacity17">50ml</string>
+    <string name="capacity18">50ml</string>
 
     <string name="color1">#FFEEE3</string>
     <string name="color2">#DEACBA</string>

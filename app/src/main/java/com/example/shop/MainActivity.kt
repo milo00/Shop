@@ -19,6 +19,7 @@ import com.example.shop.model.Mode
 import com.example.shop.model.Product
 
 //TODO: create currentCategory and change only one instead of clearing all categories
+//TODO: coming back from product to fav not working with cart
 class MainActivity : AppCompatActivity() {
     enum class CurrentMode {
         MAIN, FAVORITE, PROMOTIONS, RECOMMENDATION
