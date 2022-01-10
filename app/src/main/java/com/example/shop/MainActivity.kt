@@ -22,7 +22,10 @@ class MainActivity : AppCompatActivity() {
         MAIN, FAVORITE, PROMOTIONS, RECOMMENDATION
     }
 
-    private var currentMode: CurrentMode = CurrentMode.MAIN
+    companion object {
+        private var currentMode: CurrentMode = CurrentMode.MAIN
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -103,5 +106,41 @@ class MainActivity : AppCompatActivity() {
             emptyCart.visibility = View.VISIBLE
             cart.visibility = View.GONE
         }
+    }
+
+    fun loadProducts(nameResourceId: Int) {
+        currentMode = when (nameResourceId) {
+            R.string.category_name2 -> CurrentMode.FAVORITE
+            R.string.category_name3 -> CurrentMode.PROMOTIONS
+            R.string.category_name4 -> CurrentMode.RECOMMENDATION
+            else -> CurrentMode.MAIN
+        }
+
+        val modeId = when (currentMode) {
+            CurrentMode.MAIN -> 0
+            CurrentMode.FAVORITE -> 1
+            CurrentMode.PROMOTIONS -> 2
+            CurrentMode.RECOMMENDATION -> 3
+        }
+
+        val modesDataSet = ModeDataSource().loadModes()
+
+        modesDataSet[modeId].chosen = true
+
+        val modesRecyclerView = findViewById<RecyclerView>(R.id.categories)
+        modesRecyclerView.adapter = ModeAdapter(this, modesDataSet)
+
+
+        val productsDataSet = when (currentMode) {
+            CurrentMode.MAIN -> ProductDataSource().loadProductsMain()
+            CurrentMode.FAVORITE -> ProductDataSource().loadProductsFav()
+            CurrentMode.PROMOTIONS -> ProductDataSource().loadProductsMain()
+            CurrentMode.RECOMMENDATION -> ProductDataSource().loadProductsMain()
+        }
+
+        checkCart()
+
+        val productsRecyclerView = findViewById<RecyclerView>(R.id.products)
+        productsRecyclerView.adapter = ProductAdapter(this, productsDataSet)
     }
 }

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shop.CartActivity
 import com.example.shop.MainActivity
 import com.example.shop.R
 import com.example.shop.model.Mode
@@ -36,9 +37,7 @@ class ModeAdapter(private val context: Context, private val dataSource: List<Mod
         }
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, MainActivity::class.java)
-            intent.putExtra("mode", dataSource[position])
-            context.startActivity(intent)
+            (context as MainActivity).loadProducts(dataSource[position].nameResourceId)
         }
     }
 
