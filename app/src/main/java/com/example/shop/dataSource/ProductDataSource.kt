@@ -16,4 +16,8 @@ class ProductDataSource {
             Product(R.string.product7, R.string.capacity7, R.string.description7, R.string.prize7, "#2BA8DC", R.drawable.image7)
         )
     }
+
+    fun getCount(): Int {
+        return loadProducts().size
+    }
 }

@@ -12,8 +12,8 @@ data class Product(
     @StringRes val prizeResourceId: Int,
     val colorResourceId: String?,
     @DrawableRes val imageResourceId: Int,
-    val favourite: Boolean = false,
-    val quantityInCart: Int = 0
+    var favorite: Boolean = false,
+    var quantityInCart: Int = 0
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
@@ -21,8 +21,8 @@ data class Product(
         parcel.readInt(),
         parcel.readInt(),
         parcel.readString(),
-        parcel.readInt()
-        parcel.readBoolean()
+        parcel.readInt(),
+        parcel.readBoolean(),
         parcel.readInt()
     )
 
@@ -33,7 +33,7 @@ data class Product(
         parcel.writeInt(prizeResourceId)
         parcel.writeString(colorResourceId)
         parcel.writeInt(imageResourceId)
-        parcel.writeBoolean(favourite)
+        parcel.writeBoolean(favorite)
         parcel.writeInt(quantityInCart)
     }
 

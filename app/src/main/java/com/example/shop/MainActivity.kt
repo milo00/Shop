@@ -1,9 +1,7 @@
 package com.example.shop
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Layout
-import android.widget.ListView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shop.adapter.CategoryAdapter
@@ -12,6 +10,11 @@ import com.example.shop.dataSource.CategoryDataSource
 import com.example.shop.dataSource.ProductDataSource
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        private val favArray = Array(ProductDataSource().getCount()) { false  }
+        private val cartArray = Array(ProductDataSource().getCount()) { 0  }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,6 +26,24 @@ class MainActivity : AppCompatActivity() {
         categoriesRecyclerView.adapter = CategoryAdapter(this, categoriesDataSet)
 
         val productsDataSet = ProductDataSource().loadProducts()
+
+        val position = intent.getIntExtra("position", -1)
+        val favorite = intent.getBooleanExtra("favorite", false)
+        val cart = intent.getIntExtra("cart", 0)
+
+       /* println(favorite)
+        println(cart)*/
+        println(favArray.contentToString())
+
+        if (position != -1){
+            favArray[position] = favorite
+            cartArray[position] = cart
+        }
+
+        for ((index, value) in productsDataSet.withIndex()) {
+            value.favorite = favArray[index]
+            value.quantityInCart = cartArray[index]
+        }
 
         val productsRecyclerView = findViewById<RecyclerView>(R.id.products)
         productsRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)

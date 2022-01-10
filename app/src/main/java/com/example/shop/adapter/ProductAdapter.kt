@@ -17,19 +17,13 @@ import com.example.shop.R
 class ProductAdapter(private val context: Context, private val dataSource: List<Product>) :
     RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val productName: TextView
-        val productCapacity: TextView
-        val productPrice: TextView
-        val productColor: ConstraintLayout
-        val productImage: ImageView
+        val productName: TextView = view.findViewById(R.id.name)
+        val productCapacity: TextView = view.findViewById(R.id.capacity)
+        val productPrice: TextView = view.findViewById(R.id.price)
+        val productColor: ConstraintLayout = view.findViewById(R.id.background)
+        val productImage: ImageView = view.findViewById(R.id.image)
+        val productFavorite: ImageView = view.findViewById(R.id.favorite)
 
-        init {
-            productName = view.findViewById(R.id.name)
-            productCapacity = view.findViewById(R.id.capacity)
-            productPrice = view.findViewById(R.id.price)
-            productColor = view.findViewById(R.id.background)
-            productImage = view.findViewById(R.id.image)
-        }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.product_row_new, parent, false)
@@ -43,9 +37,15 @@ class ProductAdapter(private val context: Context, private val dataSource: List<
         holder.productColor.setBackgroundColor(Color.parseColor(dataSource[position].colorResourceId))
         holder.productImage.setImageResource(dataSource[position].imageResourceId)
 
+        if (dataSource[position].favorite) {
+            holder.productFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
+        }
+
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ProductDetails::class.java)
             intent.putExtra("product", dataSource[position])
+            println("adapter $position")
+            intent.putExtra("position", position)
             context.startActivity(intent)
         }
     }
