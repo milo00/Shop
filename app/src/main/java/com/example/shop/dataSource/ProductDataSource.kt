@@ -81,11 +81,11 @@ class ProductDataSource {
         )
     }
 
-    fun loadProducts(): List<Product> {
+    fun loadProductsMain(): List<Product> {
         return products
     }
 
-    fun getCount(): Int {
-        return products.size
+    fun loadProductsFav(): List<Product> {
+        return products.filter { product -> product.favorite }
     }
 }

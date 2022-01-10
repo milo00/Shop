@@ -4,24 +4,57 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shop.adapter.CategoryAdapter
+import com.example.shop.adapter.ModeAdapter
 import com.example.shop.adapter.ProductAdapter
-import com.example.shop.dataSource.CategoryDataSource
+import com.example.shop.dataSource.ModeDataSource
 import com.example.shop.dataSource.ProductDataSource
+import com.example.shop.model.Mode
 
 class MainActivity : AppCompatActivity() {
+    enum class CurrentMode {
+        MAIN, FAVORITE, PROMOTIONS, RECOMMENDATION
+    }
+
+    private var currentMode: CurrentMode = CurrentMode.MAIN
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val categoriesDataSet = CategoryDataSource().loadProducts()
+        val mode = intent.getParcelableExtra<Mode>("mode")
 
-        val categoriesRecyclerView = findViewById<RecyclerView>(R.id.categories)
-        categoriesRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        categoriesRecyclerView.adapter = CategoryAdapter(this, categoriesDataSet)
+        if (mode != null) {
+            currentMode = when (mode.nameResourceId) {
+                R.string.category_name2 -> CurrentMode.FAVORITE
+                R.string.category_name3 -> CurrentMode.PROMOTIONS
+                R.string.category_name4 -> CurrentMode.RECOMMENDATION
+                else -> CurrentMode.MAIN
+            }
+        }
 
-        val productsDataSet = ProductDataSource().loadProducts()
+        val modeId = when (currentMode) {
+            CurrentMode.MAIN -> 0
+            CurrentMode.FAVORITE -> 1
+            CurrentMode.PROMOTIONS -> 2
+            CurrentMode.RECOMMENDATION -> 3
+        }
+
+        val modesDataSet = ModeDataSource().loadModes()
+
+        modesDataSet[modeId].chosen = true
+
+        val modesRecyclerView = findViewById<RecyclerView>(R.id.categories)
+        modesRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        modesRecyclerView.adapter = ModeAdapter(this, modesDataSet)
+
+
+        val productsDataSet = when (currentMode) {
+                CurrentMode.MAIN -> ProductDataSource().loadProductsMain()
+                CurrentMode.FAVORITE -> ProductDataSource().loadProductsFav()
+                CurrentMode.PROMOTIONS -> ProductDataSource().loadProductsMain()
+                CurrentMode.RECOMMENDATION -> ProductDataSource().loadProductsMain()
+            }
+
 
         val position = intent.getIntExtra("position", -1)
         val favorite = intent.getBooleanExtra("favorite", false)

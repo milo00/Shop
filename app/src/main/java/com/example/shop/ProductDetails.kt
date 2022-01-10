@@ -14,7 +14,6 @@ class ProductDetails : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_details)
 
-
         val product = intent.getParcelableExtra<Product>("product")
         val position = intent.getIntExtra("position", -1)
 
