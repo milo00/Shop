@@ -93,14 +93,6 @@ class ProductDataSource {
         return products
     }
 
-    fun loadProductsFav(): List<Product> {
-        return products.filter { product -> product.favorite }
-    }
-
-    fun loadProductsCart(): List<Product> {
-        return products.filter { product -> product.quantityInCart > 0 }
-    }
-
     fun loadProducts(condition: (product: Product) -> Boolean): List<Product> {
         return products.filter { product -> condition(product) }
     }

@@ -17,7 +17,7 @@ class CartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
 
-        val productsDataSet = ProductDataSource().loadProductsCart()
+        val productsDataSet = ProductDataSource().loadProducts { product -> product.quantityInCart > 0 }
 
         val productsRecyclerView = findViewById<RecyclerView>(R.id.items)
         productsRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
@@ -31,13 +31,13 @@ class CartActivity : AppCompatActivity() {
         }
     }
 
-    fun loadCart(){
-        val productsDataSet = ProductDataSource().loadProductsCart()
+    fun loadCart() {
+        val productsDataSet = ProductDataSource().loadProducts { product -> product.quantityInCart > 0 }
 
         val productsRecyclerView = findViewById<RecyclerView>(R.id.items)
         productsRecyclerView.adapter = ProductCartAdapter(this, productsDataSet)
 
-        if (productsDataSet.isEmpty()){
+        if (productsDataSet.isEmpty()) {
             val alert = findViewById<TextView>(R.id.alert)
             alert.text = "Twój koszyk jest pusty. Czas to zmienić!"
 

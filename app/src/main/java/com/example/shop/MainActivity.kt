@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
 
         val productsDataSet = when (currentMode) {
             CurrentMode.MAIN -> ProductDataSource().loadProductsMain()
-            CurrentMode.FAVORITE -> ProductDataSource().loadProductsFav()
+            CurrentMode.FAVORITE -> ProductDataSource().loadProducts{product -> product.favorite }
             CurrentMode.PROMOTIONS -> ProductDataSource().loadProductsMain()
             CurrentMode.RECOMMENDATION -> ProductDataSource().loadProductsMain()
         }
@@ -181,7 +181,7 @@ class MainActivity : AppCompatActivity() {
 
             productsDataSet = when (currentMode) {
                 CurrentMode.MAIN -> ProductDataSource().loadProductsMain()
-                CurrentMode.FAVORITE -> ProductDataSource().loadProductsFav()
+                CurrentMode.FAVORITE -> ProductDataSource().loadProducts {product -> product.favorite }
                 CurrentMode.PROMOTIONS -> ProductDataSource().loadProductsMain()
                 CurrentMode.RECOMMENDATION -> ProductDataSource().loadProductsMain()
             }
