@@ -10,10 +10,6 @@ import com.example.shop.dataSource.CategoryDataSource
 import com.example.shop.dataSource.ProductDataSource
 
 class MainActivity : AppCompatActivity() {
-    companion object {
-        private val favArray = Array(ProductDataSource().getCount()) { false  }
-        private val cartArray = Array(ProductDataSource().getCount()) { 0  }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,14 +27,9 @@ class MainActivity : AppCompatActivity() {
         val favorite = intent.getBooleanExtra("favorite", false)
         val cart = intent.getIntExtra("cart", 0)
 
-        if (position != -1){
-            favArray[position] = favorite
-            cartArray[position] = cart
-        }
-
-        for ((index, value) in productsDataSet.withIndex()) {
-            value.favorite = favArray[index]
-            value.quantityInCart = cartArray[index]
+        if (position != -1) {
+            productsDataSet[position].favorite = favorite
+            productsDataSet[position].quantityInCart = cart
         }
 
 

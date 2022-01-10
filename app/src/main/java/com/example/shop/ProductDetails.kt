@@ -28,13 +28,10 @@ class ProductDetails : AppCompatActivity() {
         back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             if (product != null) {
-                println("before send" + product.quantityInCart)
                 intent.putExtra("favorite", product.favorite)
                 intent.putExtra("cart", product.quantityInCart)
                 intent.putExtra("position", position)
             }
-
-            //           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
 

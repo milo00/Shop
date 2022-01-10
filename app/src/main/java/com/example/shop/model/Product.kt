@@ -12,8 +12,8 @@ data class Product(
     @StringRes val prizeResourceId: Int,
     val colorResourceId: String?,
     @DrawableRes val imageResourceId: Int,
-    var favorite: Boolean = false,
-    var quantityInCart: Int = 0
+    var favorite: Boolean,
+    var quantityInCart: Int
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
