@@ -18,13 +18,23 @@
 
 
         <ImageView
-            android:id="@+id/search"
+            android:id="@+id/imageView11"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/cart_button" />
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+            app:layout_constraintEnd_toEndOf="@+id/imageView11"
+            app:layout_constraintStart_toStartOf="@+id/imageView11"
+            app:layout_constraintTop_toTopOf="@+id/imageView11"
             app:srcCompat="@drawable/ic_baseline_search_24" />
 
         <TextView
@@ -33,7 +43,7 @@
             android:layout_height="130dp"
             android:layout_marginBottom="32dp"
             android:fontFamily="@font/poppins_semibold"
-            android:gravity="center"
+            android:gravity="center|center_horizontal"
             android:rotation="270"
             android:text="@string/dla_mezczyzn"
             app:layout_constraintBottom_toTopOf="@+id/search"
@@ -53,6 +63,18 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/dla_mezczyzn" />
 
+        <ImageView
+            android:id="@+id/bottomKremNaNoc"
+            android:layout_width="4dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/dla_mezczyzn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/krem_na_noc"
+            app:srcCompat="@drawable/category_background_green" />
+
         <TextView
             android:id="@+id/krem_na_dzien"
             android:layout_width="64dp"
@@ -66,6 +88,18 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/krem_na_noc" />
 
+        <ImageView
+            android:id="@+id/bottomKremNaDzien"
+            android:layout_width="4dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/krem_na_noc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/krem_na_dzien"
+            app:srcCompat="@drawable/category_background_green" />
+
         <TextView
             android:id="@+id/zel_do_mycia"
             android:layout_width="64dp"
@@ -78,6 +112,30 @@
             app:layout_constraintEnd_toEndOf="@id/krem_na_dzien"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/krem_na_dzien" />
+
+        <ImageView
+            android:id="@+id/bottomZelDoMycia"
+            android:layout_width="4dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/krem_na_dzien"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/zel_do_mycia"
+            app:srcCompat="@drawable/category_background_green" />
+
+        <ImageView
+            android:id="@+id/bottomDlaMezczyzn"
+            android:layout_width="4dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/dla_mezczyzn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dla_mezczyzn"
+            app:srcCompat="@drawable/category_background_green" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
