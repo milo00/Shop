@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">Shop</string>
+    <string name="dla_mezczyzn">dla mężczyzn</string>
+    <string name="krem_na_noc">krem na noc</string>
+    <string name="krem_na_dzien">krem na dzień</string>
+    <string name="zel_do_mycia">żel do mycia</string>
+
+    <string name="category_name1">Strona Główna</string>
+    <string name="category_name3">Promocje</string>
+    <string name="category_name2">Ulubione</string>
+    <string name="category_name4">Najpopularniejsze</string>
+
+    <string name="product5">Soraya Plante</string>
+    <string name="product4">Vianek</string>
+    <string name="product2">Miya</string>
+    <string name="product1">Jeju</string>
+    <string name="product6">Soraya Kombucha</string>
+    <string name="product3">Tołpa</string>
+    <string name="product7">AA Vegan</string>
+    <string name="product8">Mixa</string>
+
+    <string name="description5">roślinny żel myjący do twarzy, 150 ml</string>
+    <string name="description4">odżywczy żel myjący do twarzy, 150 ml</string>
+    <string name="description2">pielęgnujący żel do mycia i oczyszczania twarzy, 140 ml</string>
+    <string name="description1">białe mydło do twarzy przeciw sebum, 75 ml</string>
+    <string name="description6">naturalny żel do mycia twarzy do każdego typu cery, 150 ml</string>
+    <string name="description3">żel z peelingiem i czerwoną glinką do mycia twarzy, 75 ml</string>
+    <string name="description7">żel do mycia twarzy oczyszczająco-seboreguljący, 150 ml</string>
+    <string name="description8">kremowy żel do mycia twarzy, 200 ml</string>
+
+    <string name="prize5">19,99zł</string>
+    <string name="prize4">22,99zł</string>
+    <string name="prize2">28,99zł</string>
+    <string name="prize1">8,99zł</string>
+    <string name="prize6">15,99zł</string>
+    <string name="prize3">9,99zł</string>
+    <string name="prize7">15,99zł</string>
+    <string name="prize8">22,99zł</string>
+
+    <string name="capacity5">150ml</string>
+    <string name="capacity4">150ml</string>
+    <string name="capacity2">140ml</string>
+    <string name="capacity1">75ml</string>
+    <string name="capacity6">140ml</string>
+    <string name="capacity3">150ml</string>
+    <string name="capacity7">75ml</string>
+    <string name="capacity8">200ml</string>
+
+    <string name="color1">#FFEEE3</string>
+    <string name="color2">#DEACBA</string>
+    <string name="color3">#8EC7FA</string>
+    <string name="color4">#E0CAB6</string>
+    <string name="color5">#D5749A</string>
+    <string name="color6">#6ACC8A</string>
+    <string name="color7">#2BA8DC</string>
+
+    <string name="details1">Roślinny żel myjący do twarzy SORAYA plante naturalnie oczyszcza skórę dzięki zawartości delikatnej substancji myjącej pochodzenia roślinnego. Zawiera wyciągi z aloesu i białej herbaty. Doskonale usuwa zanieczyszczenia, pozostawiając skórę oczyszczoną, świeżą, gotową do dalszej pielęgnacji.</string>
+    <string name="details2"></string>
+    <string name="details3"></string>
+    <string name="details4"></string>
+    <string name="details5"></string>
+    <string name="details6"></string>
+    <string name="details7"></string>
+
+    <string name="ingredients1">Roślinny żel myjący do twarzy SORAYA plante naturalnie oczyszcza skórę dzięki zawartości delikatnej substancji myjącej pochodzenia roślinnego. Zawiera wyciągi z aloesu i białej herbaty. Doskonale usuwa zanieczyszczenia, pozostawiając skórę oczyszczoną, świeżą, gotową do dalszej pielęgnacji.</string>
+    <string name="ingredients2">Aqua*, Coco-Glucoside*, Caprylyl/Capryl, Glucoside*, Glycerin*, Xanthan Gum*, Camellia Sinensis Leaf Extract*, Aloe Barbadensis Leaf Extract*, Citric Acid*, Tetrasodium Glutamate Diacetate*, Sodium Benzoate, Parfum.</string>
+    <string name="ingredients3"></string>
+    <string name="ingredients4"></string>
+    <string name="ingredients5"></string>
+    <string name="ingredients6"></string>
+    <string name="ingredients7"></string>
+
+    <string name="disclaimer">*Składniki naturalne i pochodzenia naturalnego.</string>
+</resources>
