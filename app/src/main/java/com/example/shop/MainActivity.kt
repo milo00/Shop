@@ -87,6 +87,13 @@ class MainActivity : AppCompatActivity() {
         productsRecyclerView.adapter = ProductAdapter(this, productsDataSet)
 
         addCategoriesListeners()
+
+        val search = findViewById<ImageView>(R.id.search)
+
+        search.setOnClickListener {
+            val intent = Intent(this, AddItem::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun loadCategoriesBasic() {

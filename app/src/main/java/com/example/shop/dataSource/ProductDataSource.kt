@@ -12,7 +12,7 @@ class ProductDataSource {
         private const val nightCategory = R.string.krem_na_noc
         private const val gelCategory = R.string.zel_do_mycia
         private const val initCart = 0
-        val products: List<Product> = listOf(
+        val products = mutableListOf(
             Product(R.string.product1, R.string.capacity1, R.string.description1, R.string.prize1, gelCategory, "#FFEEE3", R.drawable.image1, initFavourite, initCart),
             Product(R.string.product2, R.string.capacity2, R.string.description2, R.string.prize2, gelCategory, "#DEACBA", R.drawable.image2, initFavourite, initCart),
             Product(R.string.product3, R.string.capacity3, R.string.description3, R.string.prize3, gelCategory, "#8EC7FA", R.drawable.image3, initFavourite, initCart),
@@ -37,7 +37,7 @@ class ProductDataSource {
             Product(R.string.product22, R.string.capacity22, R.string.description22, R.string.prize22, menCategory, "#A68764", R.drawable.image22, initFavourite, initCart)
         )
 
-        val shuffledProducts = products.shuffled()
+        val shuffledProducts = products.shuffled().toMutableList()
     }
 
     fun loadProductsMain(): List<Product> {
@@ -46,5 +46,10 @@ class ProductDataSource {
 
     fun loadProducts(condition: (product: Product) -> Boolean): List<Product> {
         return products.filter { product -> condition(product) }
+    }
+
+    fun addProduct(product: Product) {
+        products.add(product)
+        shuffledProducts.add(product)
     }
 }

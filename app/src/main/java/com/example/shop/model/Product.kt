@@ -4,7 +4,6 @@ import android.os.Parcel
 import android.os.Parcelable
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.example.shop.R
 
 data class Product(
     @StringRes val titleResourceId: Int,
