@@ -45,8 +45,10 @@
         android:layout_marginTop="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newImage"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/detail_page" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -103,9 +105,10 @@
         android:id="@+id/w_sumie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="80dp"
+        android:fontFamily="@font/poppins"
         android:text="W sumie:"
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -115,12 +118,29 @@
         android:id="@+id/suma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:fontFamily="@font/poppins"
         android:text="TextView"
         android:textColor="#03DBC7"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/w_sumie" />
+
+    <Button
+        android:id="@+id/kup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/cart_button"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="KUP"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -90,4 +90,14 @@ class ProductDataSource {
     fun getProduct(title: String?): Product? {
         return products.find { it.titleResource == title }
     }
+
+    fun reload() {
+        for (product in products){
+            product.quantityInCart = 0
+        }
+
+        for (product in shuffledProducts){
+            product.quantityInCart = 0
+        }
+    }
 }
