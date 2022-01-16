@@ -53,6 +53,22 @@ class ProductDataSource {
         return products.filter { product -> condition(product) }
     }
 
+    fun setFavorite(title: String?){
+        for (product in products){
+            if (product.titleResource == title){
+                product.favorite = !product.favorite
+            }
+        }
+    }
+
+    fun setQuantity(title: String?, quantity: Int){
+        for (product in products){
+            if (product.titleResource == title){
+                product.quantityInCart = quantity
+            }
+        }
+    }
+
     fun addProduct(product: Product) {
         products.add(product)
         shuffledProducts.add(product)

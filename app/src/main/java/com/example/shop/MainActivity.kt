@@ -70,16 +70,6 @@ class MainActivity : AppCompatActivity() {
             CurrentMode.RECOMMENDATION -> ProductDataSource().loadProductsMain()
         }
 
-
-        val title = intent.getStringExtra("id")
-        val favorite = intent.getBooleanExtra("favorite", false)
-        val cart = intent.getIntExtra("cart", 0)
-
-        if (title != null) {
-            productsDataSet.find { product -> product.titleResource == title }?.favorite = favorite
-            productsDataSet.find { product -> product.titleResource == title }?.quantityInCart = cart
-        }
-
         checkCart()
 
         val productsRecyclerView = findViewById<RecyclerView>(R.id.products)

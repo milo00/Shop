@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.DrawableCompat
+import com.example.shop.dataSource.ProductDataSource
 import com.example.shop.model.Product
 
 class ProductDetailsActivity : AppCompatActivity() {
@@ -44,11 +45,6 @@ class ProductDetailsActivity : AppCompatActivity() {
 
         back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-            if (product != null) {
-                intent.putExtra("favorite", product.favorite)
-                intent.putExtra("cart", product.quantityInCart)
-                intent.putExtra("title", product.titleResource)
-            }
             startActivity(intent)
         }
 
@@ -107,14 +103,14 @@ class ProductDetailsActivity : AppCompatActivity() {
                         "ic_baseline_favorite_border_24", "drawable", packageName
                     )
                 )
-                product.favorite = !product.favorite
+                ProductDataSource().setFavorite(product.titleResource)
             } else {
                 favorite.setImageResource(
                     resources.getIdentifier(
                         "ic_baseline_favorite_24", "drawable", packageName
                     )
                 )
-                product.favorite = !product.favorite
+                ProductDataSource().setFavorite(product.titleResource)
             }
         }
     }
@@ -129,16 +125,15 @@ class ProductDetailsActivity : AppCompatActivity() {
                         "ic_baseline_remove_shopping_cart_24", "drawable", packageName
                     )
                 )
-                product.quantityInCart++
+                ProductDataSource().setQuantity(product.titleResource, product.quantityInCart + 1)
             } else if (product.quantityInCart == 1) {
                 cart.setImageResource(
                     resources.getIdentifier(
                         "ic_baseline_add_shopping_cart_24", "drawable", packageName
                     )
                 )
-                product.quantityInCart--
+                ProductDataSource().setQuantity(product.titleResource, product.quantityInCart - 1)
             }
-            println(product.quantityInCart)
         }
     }
 
