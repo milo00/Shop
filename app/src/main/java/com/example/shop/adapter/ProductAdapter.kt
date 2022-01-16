@@ -45,6 +45,8 @@ class ProductAdapter(
         val favorite = dataSource[position].favorite
         if (favorite) {
             holder.productFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
+        } else {
+            holder.productFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24)
         }
 
         holder.productFavorite.setOnClickListener {
