@@ -5,6 +5,13 @@
     <string name="krem_na_dzien">krem na dzień</string>
     <string name="zel_do_mycia">żel do mycia</string>
 
+    <string-array name="categories">
+        <item>dla mężczyzn</item>
+        <item>krem na noc</item>
+        <item>krem na dzień</item>
+        <item>żel do mycia</item>
+    </string-array>
+
     <string name="category_name1">Strona Główna</string>
     <string name="category_name3">Promocje</string>
     <string name="category_name2">Ulubione</string>
