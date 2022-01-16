@@ -11,25 +11,6 @@ import com.example.shop.dataSource.ProductDataSource
 import com.example.shop.model.Product
 
 class ProductDetailsActivity : AppCompatActivity() {
-    companion object {
-        private var name: String = ""
-        private var capacity: String = ""
-        private var price: String = ""
-        private var color: String = ""
-        private var desc: String = ""
-
-        fun set(newName: String, newCapacity: String, newPrice: String, newColor: String, newDesc: String) {
-            name = newName
-            capacity = newCapacity
-            price = newPrice
-            color = newColor
-            desc = newDesc
-        }
-    }
-
-    fun addItem(newName: String, newCapacity: String, newPrice: String, newColor: String, newDesc: String) {
-        set(newName, newCapacity, newPrice, newColor, newDesc)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +19,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         val product = intent.getParcelableExtra<Product>("product")
 
         if (product != null) {
-            setIntent(product)
+            setProduct(product)
         }
 
         val back = findViewById<ImageView>(R.id.back)
@@ -51,11 +32,12 @@ class ProductDetailsActivity : AppCompatActivity() {
         if (product != null) {
             setFavoriteOption(product)
             setCartOption(product)
+            setDeleteOption(product)
         }
 
     }
 
-    private fun setIntent(product: Product) {
+    private fun setProduct(product: Product) {
         val productName: TextView = findViewById(R.id.name)
         productName.text = product.titleResource
 
@@ -84,12 +66,6 @@ class ProductDetailsActivity : AppCompatActivity() {
                     "ic_baseline_remove_shopping_cart_24", "drawable", packageName
                 )
             )
-        }
-
-        if (name != "" && product.titleResource == "") {
-            productName.text = name
-            productCapacity.text = capacity
-            DrawableCompat.setTint(productBackground.drawable, Color.parseColor("#${color}"))
         }
     }
 
@@ -137,4 +113,14 @@ class ProductDetailsActivity : AppCompatActivity() {
         }
     }
 
+    private fun setDeleteOption(product: Product) {
+        val delete = findViewById<ImageView>(R.id.remove)
+
+        delete.setOnClickListener {
+            ProductDataSource().deleteProduct(product)
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("toast", "Pomyślnie usunięto produkt")
+            startActivity(intent)
+        }
+    }
 }

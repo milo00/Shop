@@ -73,4 +73,9 @@ class ProductDataSource {
         products.add(product)
         shuffledProducts.add(product)
     }
+
+    fun deleteProduct(product: Product) {
+        products.remove(product)
+        shuffledProducts.remove(product)
+    }
 }

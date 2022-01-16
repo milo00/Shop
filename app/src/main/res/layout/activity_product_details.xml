@@ -153,7 +153,7 @@
             <ImageView
                 android:id="@+id/imageView18"
                 android:layout_width="0dp"
-                android:layout_height="250dp"
+                android:layout_height="360dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -194,6 +194,26 @@
                 app:layout_constraintEnd_toEndOf="@+id/details"
                 app:layout_constraintStart_toStartOf="@+id/textView9"
                 app:layout_constraintTop_toBottomOf="@id/ingredients" />
+
+            <ImageView
+                android:id="@+id/remove"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ingredients2"
+                app:srcCompat="@drawable/cart_button" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintBottom_toBottomOf="@+id/remove"
+                app:layout_constraintEnd_toEndOf="@+id/remove"
+                app:layout_constraintStart_toStartOf="@+id/remove"
+                app:layout_constraintTop_toTopOf="@+id/remove"
+                app:srcCompat="@drawable/ic_baseline_delete_24" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,6 +36,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val ifToast = intent.getStringExtra("toast")
+        if (ifToast != null) {
+            val toast = Toast.makeText(this, ifToast, Toast.LENGTH_LONG)
+            toast.show()
+        }
 
         val mode = intent.getParcelableExtra<Mode>("mode")
 
