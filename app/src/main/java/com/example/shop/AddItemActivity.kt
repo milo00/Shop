@@ -13,7 +13,7 @@ import com.example.shop.model.Product
 import kotlinx.android.synthetic.main.activity_add_item.*
 
 
-class AddItem : AppCompatActivity() {
+class AddItemActivity : AppCompatActivity() {
     private val image by lazy { findViewById<ImageView>(R.id.newImage) }
 
     private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
@@ -24,8 +24,6 @@ class AddItem : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_item)
 
-        val addPhoto = findViewById<Button>(R.id.addPhoto)
-
         val spinner: Spinner = findViewById(R.id.spinner)
         ArrayAdapter.createFromResource(
             this,
@@ -35,6 +33,8 @@ class AddItem : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter
         }
+
+        val addPhoto = findViewById<Button>(R.id.addPhoto)
 
         addPhoto.setOnClickListener {
             getContent.launch("image/*")

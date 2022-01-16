@@ -19,24 +19,6 @@ class ProductAdapter(
     private val context: Context, private val dataSource: List<Product>
 ) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
-    companion object {
-        private var name: String = ""
-        private var capacity: String = ""
-        private var price: String = ""
-        private var color: String = ""
-
-        fun set(newName: String, newCapacity: String, newPrice: String, newColor: String) {
-            name = newName
-            capacity = newCapacity
-            price = newPrice
-            color = newColor
-        }
-    }
-
-    fun addItem(newName: String, newCapacity: String, newPrice: String, newColor: String) {
-        set(newName, newCapacity, newPrice, newColor)
-    }
-
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val productName: TextView = view.findViewById(R.id.name)
@@ -55,22 +37,14 @@ class ProductAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.productName.text = dataSource[position].titleResource
-        holder.productCapacity.text = dataSource[position].capacityResource
-        holder.productPrice.text = dataSource[position].prizeResource
+        holder.productCapacity.text = dataSource[position].capacityResource + "ml"
+        holder.productPrice.text = dataSource[position].prizeResource + "zł"
         holder.productColor.setBackgroundColor(Color.parseColor(dataSource[position].colorResource))
         holder.productImage.setImageResource(dataSource[position].imageResourceId)
 
         val favorite = dataSource[position].favorite
         if (favorite) {
             holder.productFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
-        }
-
-        if (name != "" && dataSource[position].titleResource == "") {
-            holder.productName.text = name
-            holder.productCapacity.text = capacity
-            holder.productPrice.text = price
-            holder.productColor.setBackgroundColor(Color.parseColor("#$color"))
-            holder.productImage.setImageResource(dataSource[position].imageResourceId)
         }
 
         holder.productFavorite.setOnClickListener {

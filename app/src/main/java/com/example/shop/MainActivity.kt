@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         val search = findViewById<ImageView>(R.id.search)
 
         search.setOnClickListener {
-            val intent = Intent(this, AddItem::class.java)
+            val intent = Intent(this, AddItemActivity::class.java)
             startActivity(intent)
         }
     }

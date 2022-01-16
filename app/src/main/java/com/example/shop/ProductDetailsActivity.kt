@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.DrawableCompat
 import com.example.shop.dataSource.ProductDataSource
@@ -15,6 +16,12 @@ class ProductDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_details)
+
+        val ifToast = intent.getStringExtra("toast")
+        if (ifToast != null) {
+            val toast = Toast.makeText(this, ifToast, Toast.LENGTH_LONG)
+            toast.show()
+        }
 
         val product = intent.getParcelableExtra<Product>("product")
 
@@ -33,16 +40,16 @@ class ProductDetailsActivity : AppCompatActivity() {
             setFavoriteOption(product)
             setCartOption(product)
             setDeleteOption(product)
+            setEditOption(product)
         }
-
     }
 
     private fun setProduct(product: Product) {
         val productName: TextView = findViewById(R.id.name)
         productName.text = product.titleResource
 
-        val productCapacity: TextView = findViewById(R.id.description)
-        productCapacity.text = product.descriptionResource
+        val productDescription: TextView = findViewById(R.id.description)
+        productDescription.text = product.descriptionResource + ", " + product.capacityResource + "ml"
 
         val productImage = findViewById<ImageView>(R.id.image)
         productImage.setImageResource(product.imageResourceId)
@@ -120,6 +127,16 @@ class ProductDetailsActivity : AppCompatActivity() {
             ProductDataSource().deleteProduct(product)
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("toast", "Pomyślnie usunięto produkt")
+            startActivity(intent)
+        }
+    }
+
+    private fun setEditOption(product: Product) {
+        val edit = findViewById<ImageView>(R.id.edit)
+
+        edit.setOnClickListener {
+            val intent = Intent(this, EditItemActivity::class.java)
+            intent.putExtra("product", product)
             startActivity(intent)
         }
     }

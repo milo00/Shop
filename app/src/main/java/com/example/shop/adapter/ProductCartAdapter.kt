@@ -34,9 +34,9 @@ class ProductCartAdapter (private val context: Context, private val dataSource: 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.productName.setText(dataSource[position].titleResource)
-        holder.productCapacity.setText(dataSource[position].capacityResource)
-        holder.productPrice.setText(dataSource[position].prizeResource)
+        holder.productName.text = dataSource[position].titleResource
+        holder.productCapacity.text = dataSource[position].capacityResource + "ml"
+        holder.productPrice.text = dataSource[position].prizeResource + "zł"
         holder.productCategory.setText(dataSource[position].categoryResourceId)
         holder.productImage.setImageResource(dataSource[position].imageResourceId)
         holder.productQuantity.text = dataSource[position].quantityInCart.toString()
