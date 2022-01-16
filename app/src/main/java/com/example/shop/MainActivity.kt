@@ -65,19 +65,19 @@ class MainActivity : AppCompatActivity() {
 
         val productsDataSet = when (currentMode) {
             CurrentMode.MAIN -> ProductDataSource().loadProductsMain()
-            CurrentMode.FAVORITE -> ProductDataSource().loadProducts{product -> product.favorite }
+            CurrentMode.FAVORITE -> ProductDataSource().loadProducts { product -> product.favorite }
             CurrentMode.PROMOTIONS -> ProductDataSource().loadProductsMain()
             CurrentMode.RECOMMENDATION -> ProductDataSource().loadProductsMain()
         }
 
 
-        val id = intent.getIntExtra("id", -1)
+        val title = intent.getStringExtra("id")
         val favorite = intent.getBooleanExtra("favorite", false)
         val cart = intent.getIntExtra("cart", 0)
 
-        if (id != -1) {
-            productsDataSet.find { product -> product.titleResourceId == id }?.favorite =  favorite
-            productsDataSet.find { product -> product.titleResourceId == id }?.quantityInCart = cart
+        if (title != null) {
+            productsDataSet.find { product -> product.titleResource == title }?.favorite = favorite
+            productsDataSet.find { product -> product.titleResource == title }?.quantityInCart = cart
         }
 
         checkCart()
@@ -189,7 +189,7 @@ class MainActivity : AppCompatActivity() {
 
             productsDataSet = when (currentMode) {
                 CurrentMode.MAIN -> ProductDataSource().loadProductsMain()
-                CurrentMode.FAVORITE -> ProductDataSource().loadProducts {product -> product.favorite }
+                CurrentMode.FAVORITE -> ProductDataSource().loadProducts { product -> product.favorite }
                 CurrentMode.PROMOTIONS -> ProductDataSource().loadProductsMain()
                 CurrentMode.RECOMMENDATION -> ProductDataSource().loadProductsMain()
             }

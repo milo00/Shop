@@ -10,6 +10,26 @@ import androidx.core.graphics.drawable.DrawableCompat
 import com.example.shop.model.Product
 
 class ProductDetailsActivity : AppCompatActivity() {
+    companion object {
+        private var name: String = ""
+        private var capacity: String = ""
+        private var price: String = ""
+        private var color: String = ""
+        private var desc: String = ""
+
+        fun set(newName: String, newCapacity: String, newPrice: String, newColor: String, newDesc: String) {
+            name = newName
+            capacity = newCapacity
+            price = newPrice
+            color = newColor
+            desc = newDesc
+        }
+    }
+
+    fun addItem(newName: String, newCapacity: String, newPrice: String, newColor: String, newDesc: String) {
+        set(newName, newCapacity, newPrice, newColor, newDesc)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_details)
@@ -27,7 +47,7 @@ class ProductDetailsActivity : AppCompatActivity() {
             if (product != null) {
                 intent.putExtra("favorite", product.favorite)
                 intent.putExtra("cart", product.quantityInCart)
-                intent.putExtra("id", product.titleResourceId)
+                intent.putExtra("title", product.titleResource)
             }
             startActivity(intent)
         }
@@ -41,16 +61,16 @@ class ProductDetailsActivity : AppCompatActivity() {
 
     private fun setIntent(product: Product) {
         val productName: TextView = findViewById(R.id.name)
-        productName.setText(product.titleResourceId)
+        productName.text = product.titleResource
 
         val productCapacity: TextView = findViewById(R.id.description)
-        productCapacity.setText(product.descriptionResourceId)
+        productCapacity.text = product.descriptionResource
 
         val productImage = findViewById<ImageView>(R.id.image)
         productImage.setImageResource(product.imageResourceId)
 
         val productBackground = findViewById<ImageView>(R.id.background)
-        DrawableCompat.setTint(productBackground.drawable, Color.parseColor(product.colorResourceId))
+        DrawableCompat.setTint(productBackground.drawable, Color.parseColor(product.colorResource))
 
         val favorite = findViewById<ImageView>(R.id.favorite)
         if (product.favorite) {
@@ -68,6 +88,12 @@ class ProductDetailsActivity : AppCompatActivity() {
                     "ic_baseline_remove_shopping_cart_24", "drawable", packageName
                 )
             )
+        }
+
+        if (name != "" && product.titleResource == "") {
+            productName.text = name
+            productCapacity.text = capacity
+            DrawableCompat.setTint(productBackground.drawable, Color.parseColor("#${color}"))
         }
     }
 

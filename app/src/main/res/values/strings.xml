@@ -10,12 +10,12 @@
     <string name="category_name2">Ulubione</string>
     <string name="category_name4">Najpopularniejsze</string>
 
-    <string name="product5">Soraya Plante</string>
-    <string name="product4">Vianek</string>
-    <string name="product2">Miya</string>
     <string name="product1">Jeju</string>
-    <string name="product6">Soraya Kombucha</string>
+    <string name="product2">Miya</string>
     <string name="product3">Tołpa</string>
+    <string name="product4">Vianek</string>
+    <string name="product5">Soraya Plante</string>
+    <string name="product6">Soraya Kombucha</string>
     <string name="product7">AA Vegan</string>
     <string name="product8">Uzdrovisko Mak</string>
     <string name="product9">Dermedic Hydrain2</string>
@@ -70,11 +70,11 @@
     <string name="prize11">29,99zł</string>
     <string name="prize12">24,99zł</string>
     <string name="prize13">135,99zł</string>
-    <string name="prize14">15,99</string>
-    <string name="prize15">38,99</string>
-    <string name="prize16">28,99</string>
-    <string name="prize17">34,99</string>
-    <string name="prize18">99,99</string>
+    <string name="prize14">15,99zł</string>
+    <string name="prize15">38,99zł</string>
+    <string name="prize16">28,99zł</string>
+    <string name="prize17">34,99zł</string>
+    <string name="prize18">99,99zł</string>
     <string name="prize19">21,99zł</string>
     <string name="prize20">12,99</string>
     <string name="prize21">21,99</string>
@@ -131,8 +131,8 @@
     <string name="ingredients3"></string>
     <string name="ingredients4"></string>
     <string name="ingredients5"></string>
-    <string name="ingredients6"></string>
-    <string name="ingredients7"></string>
+    <string name="desc">super krem</string>
+    <string name="emptyString"></string>
 
     <string name="disclaimer">*Składniki naturalne i pochodzenia naturalnego.</string>
 </resources>

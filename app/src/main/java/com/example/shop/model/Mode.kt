@@ -12,8 +12,7 @@ data class Mode (
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readByte() != 0.toByte()
-    ) {
-    }
+    )
 
     override fun describeContents(): Int {
         return 0

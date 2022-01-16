@@ -3,25 +3,24 @@ package com.example.shop.model
 import android.os.Parcel
 import android.os.Parcelable
 import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 
 data class Product(
-    @StringRes val titleResourceId: Int,
-    @StringRes val capacityResourceId: Int,
-    @StringRes val descriptionResourceId: Int,
-    @StringRes val prizeResourceId: Int,
-    @StringRes val categoryResourceId: Int,
-    val colorResourceId: String?,
+    var titleResource: String?,
+    var capacityResource: String?,
+    var descriptionResource: String?,
+    var prizeResource: String?,
+    var categoryResourceId: Int,
+    var colorResource: String?,
     @DrawableRes val imageResourceId: Int,
     var favorite: Boolean,
     var quantityInCart: Int
 ) : Parcelable {
 
     constructor(parcel: Parcel) : this(
-        parcel.readInt(),
-        parcel.readInt(),
-        parcel.readInt(),
-        parcel.readInt(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
         parcel.readInt(),
         parcel.readString(),
         parcel.readInt(),
@@ -30,12 +29,12 @@ data class Product(
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeInt(titleResourceId)
-        parcel.writeInt(capacityResourceId)
-        parcel.writeInt(descriptionResourceId)
-        parcel.writeInt(prizeResourceId)
+        parcel.writeString(titleResource)
+        parcel.writeString(capacityResource)
+        parcel.writeString(descriptionResource)
+        parcel.writeString(prizeResource)
         parcel.writeInt(categoryResourceId)
-        parcel.writeString(colorResourceId)
+        parcel.writeString(colorResource)
         parcel.writeInt(imageResourceId)
         parcel.writeBoolean(favorite)
         parcel.writeInt(quantityInCart)

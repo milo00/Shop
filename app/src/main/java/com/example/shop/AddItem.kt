@@ -5,16 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import android.app.Activity
 import android.net.Uri
-import androidx.activity.result.ActivityResult
-
-import androidx.activity.result.ActivityResultCallback
 
 import androidx.activity.result.contract.ActivityResultContracts
-
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
+import com.example.shop.adapter.ProductAdapter
+import com.example.shop.dataSource.ProductDataSource
+import kotlinx.android.synthetic.main.activity_add_item.*
 
 
 class AddItem : AppCompatActivity() {
@@ -28,10 +24,29 @@ class AddItem : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_item)
 
-        val add = findViewById<Button>(R.id.add)
+        val addPhoto = findViewById<Button>(R.id.addPhoto)
 
-        add.setOnClickListener {
+        addPhoto.setOnClickListener {
             getContent.launch("image/*")
         }
+
+        val add = findViewById<Button>(R.id.add)
+        add.setOnClickListener {
+            addItem()
+        }
+    }
+
+    private fun addItem() {
+        val name = nazwa.text.toString()
+        val capacity = pojemnosc.text.toString()
+        val price = cena.text.toString()
+        val color = kolorNowego.text.toString()
+        val desc = opis.text.toString()
+
+        ProductDataSource().addItem()
+        ProductDetailsActivity().addItem(name, capacity, price, color, desc)
+        ProductAdapter(this, ProductDataSource().loadProductsMain()).addItem(name, capacity, price, color)
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }
