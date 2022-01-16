@@ -67,7 +67,7 @@ class AddItemActivity : AppCompatActivity() {
             val toast = Toast.makeText(this, "Musisz wypelnić wszystkie pola!", Toast.LENGTH_LONG)
             toast.show()
         } else {
-            val newProduct = Product(name, capacity + "ml", desc, price + "zł", categoryId, "#$color", R.drawable.image23, false, 0)
+            val newProduct = Product(name, capacity, desc, price, categoryId, "#$color", R.drawable.image23, false, 0)
             ProductDataSource().addProduct(newProduct)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

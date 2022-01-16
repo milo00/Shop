@@ -76,7 +76,7 @@ class EditItemActivity : AppCompatActivity() {
         pojemnosc.setText(product.capacityResource)
         cena.setText(product.prizeResource)
         opis.setText(product.descriptionResource)
-        kolorNowego.setText(product.colorResource)
+        kolorNowego.setText(product.colorResource?.drop(1))
 
         val spinner: Spinner = findViewById(R.id.spinner)
         ArrayAdapter.createFromResource(

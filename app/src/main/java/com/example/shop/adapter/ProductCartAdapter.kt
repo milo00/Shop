@@ -14,7 +14,7 @@ import com.example.shop.ProductDetailsActivity
 import com.example.shop.R
 import com.example.shop.model.Product
 
-class ProductCartAdapter (private val context: Context, private val dataSource: List<Product>) :
+class ProductCartAdapter(private val context: Context, private val dataSource: List<Product>) :
     RecyclerView.Adapter<ProductCartAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val productName: TextView = view.findViewById(R.id.name)
@@ -25,6 +25,8 @@ class ProductCartAdapter (private val context: Context, private val dataSource: 
         val productQuantity: TextView = view.findViewById(R.id.quantity)
 
         val removeItem: ImageView = view.findViewById(R.id.remove)
+        val moreItem: ImageView = view.findViewById(R.id.more)
+        val lessItem: ImageView = view.findViewById(R.id.less)
 
     }
 
@@ -43,6 +45,16 @@ class ProductCartAdapter (private val context: Context, private val dataSource: 
 
         holder.removeItem.setOnClickListener {
             dataSource[position].quantityInCart = 0
+            (context as CartActivity).loadCart()
+        }
+
+        holder.moreItem.setOnClickListener {
+            dataSource[position].quantityInCart = dataSource[position].quantityInCart + 1
+            (context as CartActivity).loadCart()
+        }
+
+        holder.lessItem.setOnClickListener {
+            dataSource[position].quantityInCart = dataSource[position].quantityInCart - 1
             (context as CartActivity).loadCart()
         }
     }

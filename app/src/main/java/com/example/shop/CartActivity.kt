@@ -62,6 +62,7 @@ class CartActivity : AppCompatActivity() {
 
             w_sumie.visibility = View.GONE
             suma.visibility = View.GONE
+            kup.visibility = View.GONE
 
             home.setOnClickListener {
                 val intent = Intent(this, MainActivity::class.java)
