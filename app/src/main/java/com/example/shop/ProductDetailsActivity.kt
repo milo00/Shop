@@ -108,14 +108,18 @@ class ProductDetailsActivity : AppCompatActivity() {
                         "ic_baseline_remove_shopping_cart_24", "drawable", packageName
                     )
                 )
-                ProductDataSource().setQuantity(product.titleResource, product.quantityInCart + 1)
+                ProductDataSource().setQuantity(product.titleResource, 1)
+                val toast = Toast.makeText(this, "Dodano produkt do koszyka", Toast.LENGTH_SHORT)
+                toast.show()
             } else if (product.quantityInCart == 1) {
                 cart.setImageResource(
                     resources.getIdentifier(
                         "ic_baseline_add_shopping_cart_24", "drawable", packageName
                     )
                 )
-                ProductDataSource().setQuantity(product.titleResource, product.quantityInCart - 1)
+                ProductDataSource().setQuantity(product.titleResource, 0)
+                val toast = Toast.makeText(this, "Usunięto produkt z koszyka", Toast.LENGTH_SHORT)
+                toast.show()
             }
         }
     }

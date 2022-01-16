@@ -68,16 +68,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-            <ImageView
-                android:id="@+id/newImage"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@drawable/no_photo" />
-
             <Button
                 android:id="@+id/add"
                 android:layout_width="wrap_content"
@@ -93,22 +83,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner" />
-
-            <Button
-                android:id="@+id/addPhoto"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/cart_button"
-                android:fontFamily="@font/poppins_medium"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:text="Zmień zdjęcie"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/newImage" />
 
             <EditText
                 android:id="@+id/pojemnosc"
@@ -174,12 +148,12 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 android:fontFamily="@font/poppins"
                 android:text="Nazwa:"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@+id/nazwa"
-                app:layout_constraintTop_toBottomOf="@+id/addPhoto" />
+                app:layout_constraintTop_toBottomOf="@+id/oldImage" />
 
             <TextView
                 android:id="@+id/textView4"

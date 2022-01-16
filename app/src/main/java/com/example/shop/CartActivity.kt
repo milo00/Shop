@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shop.adapter.ProductCartAdapter
 import com.example.shop.dataSource.ProductDataSource
+import kotlinx.android.synthetic.main.activity_cart.*
+import java.math.RoundingMode
 
 class CartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,8 +24,13 @@ class CartActivity : AppCompatActivity() {
         productsRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         productsRecyclerView.adapter = ProductCartAdapter(this, productsDataSet)
 
-        val back = findViewById<ImageView>(R.id.back2)
+        var sum = 0.0
+        productsDataSet.forEach {
+            sum += (it.prizeResource?.replace(",", ".")?.toDouble() ?: 0.0) * it.quantityInCart
+        }
+        suma.text = sum.toBigDecimal().setScale(2, RoundingMode.UP).toString() + "zł"
 
+        val back = findViewById<ImageView>(R.id.back2)
         back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -33,20 +40,29 @@ class CartActivity : AppCompatActivity() {
     fun loadCart() {
         val productsDataSet = ProductDataSource().loadProducts { product -> product.quantityInCart > 0 }
 
+        var sum = 0
+        productsDataSet.forEach {
+            sum += (it.prizeResource?.toInt() ?: 0) * it.quantityInCart
+        }
+
+        suma.text = sum.toString() + "zł"
+
         val productsRecyclerView = findViewById<RecyclerView>(R.id.items)
         productsRecyclerView.adapter = ProductCartAdapter(this, productsDataSet)
 
         if (productsDataSet.isEmpty()) {
-            val alert = findViewById<TextView>(R.id.alert)
             alert.text = "Twój koszyk jest pusty. Czas to zmienić!"
 
-            val home = findViewById<ImageView>(R.id.home)
             home.visibility = View.VISIBLE
+            powrot.visibility = View.VISIBLE
+
+            w_sumie.visibility = View.GONE
+            suma.visibility = View.GONE
+
             home.setOnClickListener {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
-
         }
     }
 }

@@ -57,8 +57,8 @@ class ProductDataSource {
     }
 
     fun setQuantity(title: String?, quantity: Int){
-        products.find { it.titleResource == title }?.titleResource = title
-        shuffledProducts.find { it.titleResource == title }?.titleResource = title
+        products.find { it.titleResource == title }?.quantityInCart = quantity
+        shuffledProducts.find { it.titleResource == title }?.quantityInCart = quantity
     }
 
     fun addProduct(product: Product) {

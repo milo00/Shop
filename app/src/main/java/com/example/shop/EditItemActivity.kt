@@ -15,12 +15,6 @@ import com.example.shop.model.Product
 import kotlinx.android.synthetic.main.activity_add_item.*
 
 class EditItemActivity : AppCompatActivity() {
-    private val image by lazy { findViewById<ImageView>(R.id.newImage) }
-
-    private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-        image.setImageURI(uri)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_item)
@@ -39,13 +33,6 @@ class EditItemActivity : AppCompatActivity() {
                 val intent = Intent(this, ProductDetailsActivity::class.java)
                 intent.putExtra("product", product)
                 startActivity(intent)
-            }
-
-            val addPhoto = findViewById<Button>(R.id.addPhoto)
-
-            addPhoto.setOnClickListener {
-                getContent.launch("image/*")
-                oldImage.visibility = View.GONE
             }
 
             val update = findViewById<Button>(R.id.add)
