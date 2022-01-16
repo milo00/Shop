@@ -109,6 +109,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                     )
                 )
                 ProductDataSource().setQuantity(product.titleResource, 1)
+                product.quantityInCart = 1
                 val toast = Toast.makeText(this, "Dodano produkt do koszyka", Toast.LENGTH_SHORT)
                 toast.show()
             } else if (product.quantityInCart == 1) {
@@ -118,6 +119,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                     )
                 )
                 ProductDataSource().setQuantity(product.titleResource, 0)
+                product.quantityInCart = 0
                 val toast = Toast.makeText(this, "Usunięto produkt z koszyka", Toast.LENGTH_SHORT)
                 toast.show()
             }
